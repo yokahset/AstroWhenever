@@ -1,5 +1,14 @@
 ---
+const pageTitle = "About Whenever";
 
+const identity = {
+    firstName: "Andrew",
+    country: "United States",
+    occupation: "Semi-Employed Creative Vagrant",
+    hobbies: ["Wasting time", "Making Websites twice", "Being hot"]
+};
+
+const skills = ["Losing bets", "Making bets", "Gambling addiction counseling"];
 ---
 
 <html lang="en">
@@ -8,13 +17,25 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
-    <h1>About Whenever</h1>
+    <h1>{pageTitle}</h1>
     <p>If this would work, I'd be so fucking happy?</p>
+<p>Here are a few facts about me:</p>
+<ul>
+  <li>My name is {identity.firstName}.</li>
+  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+  {identity.hobbies.length >= 2 &&
+    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+  }
+</ul>
+<p>My skills are:</p>
+<ul>
+  {skills.map((skill) => <li>{skill}</li>)}
+</ul>
   </body>
 </html>
